@@ -1,2 +1,3 @@
-# Solr-reaction
-A project built on 'solrstrap' to use Webpack, Node Express, NPM and ReactJS, from Facebook.
+# Facilities Flux
+
+A project built to show something I'm familiar with in relation to using Flux pattern and ReactJS.
