@@ -13,7 +13,7 @@ var config = {
     devtool: 'source-map',
     entry: [
         'webpack-hot-middleware/client?reload=true',
-        path.join(__dirname, 'app/js/app.js')
+        path.join(__dirname, 'app/app.js')
     ],
     output: {
         path: path.join(__dirname, '/dist/'),
