@@ -12,7 +12,8 @@ function getFacilityState() {
 
 var FacilitySection = React.createClass({
     propTypes: {
-        facilities: React.PropTypes.array.isRequired
+        facilities: React.PropTypes.array.isRequired,
+        readOnly: React.PropTypes.bool.isRequired
     },
     getInitialState: function () {
         // add facilities to the FacilityStore from the 'back-end'
@@ -39,10 +40,12 @@ var FacilitySection = React.createClass({
     render: function () {
         return (
             <div className="container">
-                <fieldset>
-                    <legend>Facilities</legend>
-                    <FacilityList facilities={this.state.facilities}/>
-                </fieldset>
+                <form>
+                    <fieldset disabled={this.props.readOnly}>
+                        <legend>Facilities</legend>
+                        <FacilityList facilities={this.state.facilities} readOnly={this.props.readOnly}/>
+                    </fieldset>
+                </form>
             </div>
         )
     }

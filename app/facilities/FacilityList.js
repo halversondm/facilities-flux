@@ -5,7 +5,8 @@ var FacilityActions =require('./FacilityActions');
 
 var FacilityList = React.createClass({
     propTypes: {
-        facilities: React.PropTypes.object.isRequired
+        facilities: React.PropTypes.object.isRequired,
+        readOnly: React.PropTypes.bool.isRequired
     },
     handleAddClick: function () {
         FacilityActions.create(0, "", null, "");
@@ -13,7 +14,7 @@ var FacilityList = React.createClass({
     render: function () {
         var facilities = [];
         for (var key in this.props.facilities) {
-            facilities.push(<Facility facility={this.props.facilities[key]} key={key}/>);
+            facilities.push(<Facility facility={this.props.facilities[key]} readOnly={this.props.readOnly} key={key}/>);
         }
         return (
             <div>
@@ -30,7 +31,7 @@ var FacilityList = React.createClass({
                 </div>
                 {facilities}
                 <hr/>
-                <div className="row">
+                <div className="row" hidden={this.props.readOnly}>
                     <div className="col-sm-2">
                         <input type="button" className="btn btn-success" value="Add" onClick={this.handleAddClick}></input>
                     </div>
