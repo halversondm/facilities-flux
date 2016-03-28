@@ -1,8 +1,9 @@
 'use strict';
-var React = require('react');
-var FacilityList = require('./FacilityList');
-var FacilityStore = require('./FacilityStore');
-var FacilityActions = require('./FacilityActions');
+import React from 'react';
+import FacilityList from './FacilityList';
+import FacilityStore from './FacilityStore';
+import FacilityActions from './FacilityActions';
+import {Header} from 'base-react-components';
 
 function getFacilityState() {
     return {
@@ -43,6 +44,7 @@ var FacilitySection = React.createClass({
                 <form>
                     <fieldset disabled={this.props.readOnly}>
                         <legend>Facilities</legend>
+                        <Header />
                         <FacilityList facilities={this.state.facilities} readOnly={this.props.readOnly}/>
                     </fieldset>
                 </form>

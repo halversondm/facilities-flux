@@ -1,9 +1,9 @@
 'use strict';
-var React = require('react');
-var ReactDOM = require('react-dom');
-var bootstrap = require('bootstrap.css');
+require('bootstrap.css');
 
-var FacilitySection = require('./facilities/FacilitySection');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import FacilitySection from './facilities/FacilitySection';
 
 // simulation of facilities coming into the FacilitySection through props, but ultimately from XHR.
 var facilities = [{id: 1, facilityId: "1", isFunding: true, facilityAmount: 123.45},

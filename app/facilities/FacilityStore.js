@@ -1,8 +1,9 @@
 'use strict';
-var AppDispatcher = require('./AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-var FacilityConstants = require('./FacilityConstants');
 var assign = require('object-assign');
+
+import AppDispatcher from './AppDispatcher';
+import FacilityConstants from './FacilityConstants';
 
 var CHANGE_EVENT = 'change';
 
@@ -86,4 +87,4 @@ AppDispatcher.register(function (action) {
     }
 });
 
-module.exports = FacilityStore;
+export default FacilityStore;

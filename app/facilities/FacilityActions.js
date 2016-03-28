@@ -1,6 +1,6 @@
 'use strict';
-var AppDispatcher = require('./AppDispatcher');
-var FacilityConstants = require('./FacilityConstants');
+import AppDispatcher from './AppDispatcher';
+import FacilityConstants from './FacilityConstants';
 
 var FacilityActions = {
 
@@ -33,4 +33,4 @@ var FacilityActions = {
 
 };
 
-module.exports = FacilityActions;
+export default FacilityActions;

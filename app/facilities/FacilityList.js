@@ -1,7 +1,7 @@
 'use strict';
-var React = require('react');
-var Facility = require('./Facility');
-var FacilityActions =require('./FacilityActions');
+import React from 'react';
+import Facility from './Facility';
+import FacilityActions from './FacilityActions';
 
 var FacilityList = React.createClass({
     propTypes: {

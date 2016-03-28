@@ -10,7 +10,7 @@ var config = {
         this.resolve.alias[name] = path;
         this.module.noParse.push(new RegExp(path));
     },
-    devtool: 'source-map',
+    devtool: 'eval',
     entry: [
         'webpack-hot-middleware/client?reload=true',
         path.join(__dirname, 'app/app.js')

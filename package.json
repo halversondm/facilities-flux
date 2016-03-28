@@ -23,6 +23,7 @@
     "jscs": "jscs ."
   },
   "dependencies": {
+    "base-react-components": "git://github.com/halversondm/base-react-components.git#master",
     "bootstrap": "^3.3.5",
     "classnames": "^2.2.3",
     "flux": "^2.1.1",
