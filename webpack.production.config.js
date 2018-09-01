@@ -8,7 +8,7 @@ var StatsPlugin = require('stats-webpack-plugin');
 
 module.exports = {
   entry: [
-    path.join(__dirname, 'app/main.js')
+    path.join(__dirname, 'app/app.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -51,7 +51,7 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')
-    }]
+    },{test: /\.(ttf|eot|woff2|svg|png|woff)$/, loader: 'url-loader?limit=100000'}]
   },
   postcss: [
     require('autoprefixer')

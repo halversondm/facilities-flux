@@ -1,5 +1,5 @@
 'use strict';
-require('bootstrap.css');
+require('bootstrap/dist/css/bootstrap.css');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
