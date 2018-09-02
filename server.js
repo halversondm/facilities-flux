@@ -10,14 +10,12 @@ const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = 3001;
 const app = express();
 
-app.use(express.static(__dirname + '/dist'));
-
 if (isDeveloping) {
   const compiler = webpack(config);
 
   app.use(webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    contentBase: 'src',
+    contentBase: 'app',
     stats: {
       colors: true,
       hash: false,
@@ -29,6 +27,8 @@ if (isDeveloping) {
   }));
 
   app.use(webpackHotMiddleware(compiler));
+} else {
+  app.use(express.static(__dirname + '/dist'));
 }
 
 //app.get('*', function response(req, res) {

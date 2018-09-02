@@ -4,19 +4,19 @@ import Facility from './Facility';
 import FacilityActions from './FacilityActions';
 
 var FacilityList = React.createClass({
-    propTypes: {
-        facilities: React.PropTypes.object.isRequired,
-        readOnly: React.PropTypes.bool.isRequired
+  propTypes: {
+      facilities: React.PropTypes.object.isRequired,
+      readOnly: React.PropTypes.bool.isRequired
     },
-    handleAddClick: function () {
-        FacilityActions.create(0, "", null, "");
+  handleAddClick: function() {
+      FacilityActions.create(0, '', null, '');
     },
-    render: function () {
-        var facilities = [];
-        for (var key in this.props.facilities) {
-            facilities.push(<Facility facility={this.props.facilities[key]} readOnly={this.props.readOnly} key={key}/>);
+  render: function() {
+      var facilities = [];
+      for (var key in this.props.facilities) {
+          facilities.push(<Facility facility={this.props.facilities[key]} readOnly={this.props.readOnly} key={key}/>);
         }
-        return (
+      return (
             <div>
                 <div className="row">
                     <div className="col-sm-2">
@@ -37,7 +37,7 @@ var FacilityList = React.createClass({
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 });
 

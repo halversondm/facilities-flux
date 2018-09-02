@@ -1,20 +1,33 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production'
 
 const webpackConfig = {
-	entry: './app/app.js',
-	mode: 'production',
+	entry: {
+		facilities: './app/facilities/facilities.js',
+		tab: './app/tab/tab.js'
+	},
+	mode: process.env.NODE_ENV,
 	output: {
-		filename: 'main-[hash].js'
+		filename: devMode ? '[name].js' : '[name]-[hash].js'
 	},
 	module: {
 		rules: [
 			{ test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
-			{ test: /\.css$/, use: ['style-loader', 'css-loader'] },
+			{
+				test: /\.css$/, use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					'css-loader']
+			},
 			{ test: /\.ttf|woff|woff2|svg|eot$/, use: 'file-loader' }
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin({ template: 'app/index.tpl.html' })
+		new HtmlWebpackPlugin({ template: './app/index.tpl.html', filename: 'tab.html', chunks: 'tab' }),
+		new HtmlWebpackPlugin({ template: './app/index.tpl.html', filename: 'facilities.html', chunks: 'facilties' }),
+		new MiniCssExtractPlugin({
+			filename: devMode ? '[name].css' : '[name]-[hash].css',
+			chunkFilename: devMode ? '[id].css' : '[id]-[hash].css',
+		})
 	]
 };
 
