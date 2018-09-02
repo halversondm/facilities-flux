@@ -5,6 +5,7 @@
 import React from 'react';
 import TabOptionA from './TabOptionA';
 import TabOptionB from './TabOptionB';
+import { hot } from 'react-hot-loader'
 
 class Container extends React.Component {
 
@@ -43,4 +44,4 @@ class Container extends React.Component {
     }
 }
 
-export default Container;
+export default hot(module)(Container);

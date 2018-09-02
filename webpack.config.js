@@ -9,6 +9,11 @@ const webpackConfig = {
 		tab: './app/tab/tab.js'
 	},
 	mode: process.env.NODE_ENV,
+	devServer: {
+		contentBase: '/dist',
+		hot: true,
+		port: 3001
+	},
 	output: {
 		filename: devMode ? '[name].js' : '[name]-[hash].js'
 	},
@@ -32,7 +37,8 @@ const webpackConfig = {
 		new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
-        })
+		}),
+		new webpack.HotModuleReplacementPlugin()
 	]
 };
 
