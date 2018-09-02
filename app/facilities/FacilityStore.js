@@ -47,44 +47,44 @@ function destroy(uiId) {
 var FacilityStore = assign({}, EventEmitter.prototype, {
 
   getAll: function() {
-      return facilities;
-    },
+    return facilities;
+  },
 
   emitChange: function() {
-      this.emit(CHANGE_EVENT);
-    },
+    this.emit(CHANGE_EVENT);
+  },
 
   addChangeListener: function(callback) {
-      this.on(CHANGE_EVENT, callback);
-    },
+    this.on(CHANGE_EVENT, callback);
+  },
 
   removeChangeListener: function(callback) {
-      this.removeListener(CHANGE_EVENT, callback);
-    }
+    this.removeListener(CHANGE_EVENT, callback);
+  }
 });
 
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
   switch (action.actionType) {
-    case FacilityConstants.FACILITY_CREATE:
-      create(action.id, action.facilityId, action.isFunding, action.facilityAmount);
-      FacilityStore.emitChange();
-      break;
-    case FacilityConstants.FACILITY_UPDATE:
-      update(action.uiId, {
-              facilityId: action.facilityId,
-              isFunding: action.isFunding,
-              facilityAmount: action.facilityAmount
-            });
-      FacilityStore.emitChange();
-      break;
-    case FacilityConstants.FACILITY_DESTROY:
-      destroy(action.uiId);
-      FacilityStore.emitChange();
-      break;
-    default:
-      break;
-    }
+  case FacilityConstants.FACILITY_CREATE:
+    create(action.id, action.facilityId, action.isFunding, action.facilityAmount);
+    FacilityStore.emitChange();
+    break;
+  case FacilityConstants.FACILITY_UPDATE:
+    update(action.uiId, {
+        facilityId: action.facilityId,
+        isFunding: action.isFunding,
+        facilityAmount: action.facilityAmount
+      });
+    FacilityStore.emitChange();
+    break;
+  case FacilityConstants.FACILITY_DESTROY:
+    destroy(action.uiId);
+    FacilityStore.emitChange();
+    break;
+  default:
+    break;
+  }
 });
 
 export default FacilityStore;

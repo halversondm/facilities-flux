@@ -1,6 +1,7 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = process.env.NODE_ENV !== 'production'
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 const webpackConfig = {
 	entry: {
@@ -22,12 +23,16 @@ const webpackConfig = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin({ template: './app/index.tpl.html', filename: 'tab.html', chunks: 'tab' }),
-		new HtmlWebpackPlugin({ template: './app/index.tpl.html', filename: 'facilities.html', chunks: 'facilties' }),
+		new HtmlWebpackPlugin({ template: './app/index.tpl.html', filename: 'tab.html', chunks: ['tab'] }),
+		new HtmlWebpackPlugin({ template: './app/index.tpl.html', filename: 'facilities.html', chunks: ['facilities'] }),
 		new MiniCssExtractPlugin({
 			filename: devMode ? '[name].css' : '[name]-[hash].css',
 			chunkFilename: devMode ? '[id].css' : '[id]-[hash].css',
-		})
+		}),
+		new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
 	]
 };
 

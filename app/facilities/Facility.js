@@ -4,39 +4,39 @@ import FacilityActions from './FacilityActions';
 
 const Facility = React.createClass({
   propTypes: {
-      facility: React.PropTypes.object.isRequired,
-      readOnly: React.PropTypes.bool.isRequired
-    },
+    facility: React.PropTypes.object.isRequired,
+    readOnly: React.PropTypes.bool.isRequired
+  },
   getInitialState: function() {
-      return { facility: this.props.facility };
-    },
+    return { facility: this.props.facility };
+  },
   componentWillReceiveProps: function(nextProps) {
-      this.setState({ facility: nextProps.facility });
-    },
+    this.setState({ facility: nextProps.facility });
+  },
   handleRemove: function(event) {
-      FacilityActions.destroy(this.props.facility.uiId);
-    },
+    FacilityActions.destroy(this.props.facility.uiId);
+  },
   handleRadioClick: function(event) {
-      var facility = this.state.facility;
-      facility.isFunding = event.target.value === 'true';
-      this.setState(facility);
-      this.save(null);
-    },
+    var facility = this.state.facility;
+    facility.isFunding = event.target.value === 'true';
+    this.setState(facility);
+    this.save(null);
+  },
   handleFacilityIdChange: function(event) {
-      var facility = this.state.facility;
-      facility.facilityId = event.target.value;
-      this.setState(facility);
-    },
+    var facility = this.state.facility;
+    facility.facilityId = event.target.value;
+    this.setState(facility);
+  },
   handleFacilityAmountChange: function(event) {
-      var facility = this.state.facility;
-      facility.facilityAmount = event.target.value;
-      this.setState(facility);
-    },
+    var facility = this.state.facility;
+    facility.facilityAmount = event.target.value;
+    this.setState(facility);
+  },
   save: function(event) {
-      FacilityActions.updateFacility(this.state.facility.uiId, this.state.facility.facilityId, this.state.facility.isFunding, this.state.facility.facilityAmount);
-    },
+    FacilityActions.updateFacility(this.state.facility.uiId, this.state.facility.facilityId, this.state.facility.isFunding, this.state.facility.facilityAmount);
+  },
   render: function() {
-      return (
+    return (
             <div className="row">
                 <div className="col-sm-2">
                     <input type="text" className="form-control" value={this.state.facility.facilityId}
@@ -74,7 +74,7 @@ const Facility = React.createClass({
                 </div>
             </div>
         );
-    }
+  }
 });
 
 export default Facility;

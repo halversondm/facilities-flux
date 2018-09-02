@@ -21,8 +21,8 @@ class Container extends React.Component {
     render() {
       var tabOption;
       if (this.state.option === 'A') {
-          tabOption = <TabOptionA />;
-        } else if (this.state.option === 'B') {
+        tabOption = <TabOptionA />;
+      } else if (this.state.option === 'B') {
           tabOption = <TabOptionB />;
         }
       return (
