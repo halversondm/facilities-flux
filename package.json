@@ -22,8 +22,7 @@
     "prebuild": "npm run clean",
     "start": "NODE_ENV=development webpack-dev-server --open",
     "build": "NODE_ENV=production webpack",
-    "eslint": "eslint . --fix",
-    "jscs": "jscs ."
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "base-react-components": "git://github.com/halversondm/base-react-components.git#master",
@@ -47,7 +46,7 @@
     "babel-loader": "8.0.0",
     "css-loader": "1.0.0",
     "eslint": "5.5.0",
-    "eslint-plugin-react": "^3.4.2",
+    "eslint-plugin-react": "7.11.1",
     "file-loader": "2.0.0",
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "0.4.2",
