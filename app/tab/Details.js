@@ -23,6 +23,7 @@ class Details extends React.Component {
                     <label htmlFor="input3">No</label>
                     <input type="radio" className="radio-inline" id="input3" name="rq"></input>
                 </div>
+                <div>another test</div>
             </div>
         );
     }

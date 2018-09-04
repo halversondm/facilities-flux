@@ -20,7 +20,7 @@
     "clean": "rimraf dist",
     "prestart": "npm run clean",
     "prebuild": "npm run clean",
-    "start": "NODE_ENV=development webpack-dev-server --open",
+    "start": "NODE_ENV=development babel-node server",
     "build": "NODE_ENV=production webpack",
     "lint": "eslint . --fix"
   },
@@ -47,6 +47,7 @@
     "css-loader": "1.0.0",
     "eslint": "5.5.0",
     "eslint-plugin-react": "7.11.1",
+    "express": "4.16.3",
     "file-loader": "2.0.0",
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "0.4.2",
@@ -55,6 +56,7 @@
     "style-loader": "0.23.0",
     "webpack": "4.17.1",
     "webpack-cli": "3.1.0",
-    "webpack-dev-server": "3.1.7"
+    "webpack-dev-middleware": "3.2.0",
+    "webpack-hot-middleware": "2.23.1"
   }
 }

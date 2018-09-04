@@ -3,19 +3,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
+const devEntry = {
+	facilities: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './app/facilities/facilities.js'],
+	tab: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000','./app/tab/tab.js']
+};
+
+const prodEntry = {
+    facilities: './app/facilities/facilities.js',
+    tab: './app/tab/tab.js'
+};
+
 const webpackConfig = {
-	entry: {
-		facilities: './app/facilities/facilities.js',
-		tab: './app/tab/tab.js'
-	},
+	entry: devMode ? devEntry: prodEntry,
 	mode: process.env.NODE_ENV,
-	devServer: {
-		contentBase: '/dist',
-		hot: true,
-		port: 3001
-	},
 	output: {
-		filename: devMode ? '[name].js' : '[name]-[hash].js'
+		filename: devMode ? '[name].js' : '[name]-[hash].js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
