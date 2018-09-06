@@ -6,11 +6,11 @@ import React from 'react';
 class Details extends React.Component {
 
     constructor() {
-      super();
+        super();
     }
 
     render() {
-      return (
+        return (
             <div className="row">
                 <div className="col-sm-4">
                     <label htmlFor="input1">An Input</label>

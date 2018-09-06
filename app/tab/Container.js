@@ -5,28 +5,28 @@
 import React from 'react';
 import TabOptionA from './TabOptionA';
 import TabOptionB from './TabOptionB';
-import { hot } from 'react-hot-loader'
+import {hot} from 'react-hot-loader'
 
 class Container extends React.Component {
 
     constructor() {
-      super();
-      this.state = {option: ''};
-      this.handleChange = this.handleChange.bind(this);
+        super();
+        this.state = {option: ''};
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-      this.setState({option: event.target.value});
+        this.setState({option: event.target.value});
     }
 
     render() {
-      var tabOption;
-      if (this.state.option === 'A') {
-        tabOption = <TabOptionA />;
-      } else if (this.state.option === 'B') {
-          tabOption = <TabOptionB />;
+        var tabOption;
+        if (this.state.option === 'A') {
+            tabOption = <TabOptionA/>;
+        } else if (this.state.option === 'B') {
+            tabOption = <TabOptionB/>;
         }
-      return (
+        return (
             <div>
                 <div className="container">
                     <header><h3>React Test Bed</h3></header>
